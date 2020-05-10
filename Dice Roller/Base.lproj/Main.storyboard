@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +10,62 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Dice_Roller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice-general" translatesAutoresizingMaskIntoConstraints="NO" id="Sbv-ZV-Fle">
+                                <rect key="frame" x="87" y="228" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="T2e-dp-ve9"/>
+                                    <constraint firstAttribute="width" constant="240" id="TT7-TE-a0c"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xka-fe-n6v">
+                                <rect key="frame" x="143" y="518" width="128" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Syn-Vz-oRq"/>
+                                    <constraint firstAttribute="width" constant="128" id="vUX-0h-ta9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1V-bi-kJn">
+                                <rect key="frame" x="167" y="593" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="74f-aZ-7v2"/>
+                                    <constraint firstAttribute="width" constant="80" id="Vi9-S9-n4W"/>
+                                </constraints>
+                                <state key="normal" title="Roll!"/>
+                                <connections>
+                                    <action selector="rollDie:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KoH-T5-Diz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="I1V-bi-kJn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="G8I-RB-wMA"/>
+                            <constraint firstItem="Sbv-ZV-Fle" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="KcY-pF-G5u"/>
+                            <constraint firstItem="Xka-fe-n6v" firstAttribute="top" secondItem="Sbv-ZV-Fle" secondAttribute="bottom" constant="50" id="aFo-VL-oh1"/>
+                            <constraint firstItem="I1V-bi-kJn" firstAttribute="top" secondItem="Xka-fe-n6v" secondAttribute="bottom" constant="50" id="eh4-Xe-krv"/>
+                            <constraint firstItem="Sbv-ZV-Fle" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fhq-Ay-CyK"/>
+                            <constraint firstItem="Xka-fe-n6v" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vZD-PN-Vb0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="dieImage" destination="Sbv-ZV-Fle" id="nA6-zU-sSk"/>
+                        <outlet property="dieResult" destination="Xka-fe-n6v" id="aRb-F2-jal"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-220" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dice-general" width="256" height="256"/>
+    </resources>
 </document>
